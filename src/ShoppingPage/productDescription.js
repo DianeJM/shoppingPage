@@ -39,18 +39,19 @@ function ProductDescription() {
               <img src={data.image} alt="Product" />
             </div>
             <div className='description_price'>
-              <h3 className="description-title">{data.price}</h3>
+              <p className="description-priced">{data.price}</p>
             </div>
           </div>
         </div>
         <div className='col-md-6 mb-3'>
-          <div className="description_card">
-            <p className="description-price">Description</p>
+          <div className="description_card_text">
+            <p className="description-text">Description</p>
             <h3 className="description-title">{data.title}</h3>
             <p className="description-description">{data.description}</p>
             <button type='button' className='btn-description' onClick={addToCart}>
-          ADD TO CART
-        </button>          </div>
+              ADD TO CART
+            </button>          
+        </div>
         </div>
       </div>
     </div>

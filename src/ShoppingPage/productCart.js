@@ -39,24 +39,44 @@ function ProductCart() {
         <div className="row justify-content-center">
           <div className="col-12 col-lg-10 col-xl-12">
             <div className="header mt-md-3">
-              <div className="header-body">
-                <h3 className="header-pretitle">Shopping Continue</h3>
-              </div>
+                <a href='/'><h3 className="header-pretitle"><i class="fa fa-angle-left" aria-hidden="true"></i> Shopping Continue</h3></a>
             </div>
           </div>
         </div>
-        <div className="cartItems">
-          {items.map((item) => (
-            <div key={item.id}>
-              <img src={item.image} alt="Product" />
-              <h4>{item.title}</h4>
-              <p>{item.description}</p>
-              <p>Quantity: {item.quantity || 1}</p>
-              <button onClick={() => increaseQuantity(item.id)}>+</button>
-              <button onClick={() => decreaseQuantity(item.id)}>-</button>
-              <button onClick={() => deleteItem(item.id)}>Delete</button>
+        <div className='row cart'>
+        <div className='cart-left col-md-6'>
+          <div className='cart-left-heading'>
+            <hr className='line'/>
+            <div className='cart-title'>
+              <h5>Shopping cart</h5>
+              <p>You have {items.length} item in your cart</p>
             </div>
-          ))}
+          </div>
+          <div className='cart-left-product'>
+            <div className="cartItems">
+              {items.map((item) => (
+                <div key={item.id} className='d-flex flex-row justify-content-between'>
+                  <div className="col-md-2 p-2"><img src={item.image} alt="Product" /></div>
+                  <div className="col-md-2 p-2"> 
+                    <h4>{item.title}</h4>
+                    <p>{item.description}</p>
+                  </div>
+                  <div className="col-md-2 p-2">
+                    <p>Quantity: 
+                    <button onClick={() => increaseQuantity(item.id)}>+</button>
+                    <button onClick={() => decreaseQuantity(item.id)}>-</button>
+                    <span>{item.quantity || 1}</span></p>
+                  </div>
+                  <div className="col-md-1 p-2"><p>${item.price}</p></div>
+                  <div className="col-md-1 p-2"><button onClick={() => deleteItem(item.id)}>Delete</button></div>  
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className='cart-right col-md-6'>
+          <h4 className='Card_Details'>Card Details</h4>
+        </div>
         </div>
       </div>
     </>

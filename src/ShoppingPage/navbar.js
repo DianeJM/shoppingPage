@@ -1,30 +1,10 @@
 import React from 'react';
 import { NavLink, Navigate, useNavigate } from 'react-router-dom';
 
-export default function Navbar({ children }) {
-  const user = JSON.parse(localStorage.getItem('RIFALYPUBLISHER'));
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    localStorage.clear();
-    navigate('/signout', { replace: true });
-  };
-
-
-  if (!user) {
-    return (
-      <Navigate
-        to='/signout'
-        replace
-      />
-    );
-  }
+export default function Navbar() {
 
   return (
-    <nav
-      className='navbar navbar-expand-lg fixed-top'
-      id='topnav'>
-      <div className='container'>
+    <nav className='navbar navbar-expand-lg fixed-top' id='topnav'>
         <button
           className='navbar-toggler me-auto'
           type='button'
@@ -55,7 +35,6 @@ export default function Navbar({ children }) {
             </NavLink>
           </li>
         </ul>
-      </div>
     </nav>
   );
 }

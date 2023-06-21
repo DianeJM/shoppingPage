@@ -35,20 +35,17 @@ function ProductList() {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-lg-10 col-xl-12">
-            <div className="header mt-md-3">
-              <div className="header-body">
-                <h3 className="header-pretitle">
+            <div className="header">
+                <h2 className="header-pretitle">
                   Products
-                </h3>
-              </div>
+                </h2>
             </div>
           </div>
         </div>
+        <div className='row product_list g-3 mb-3'>
         {products.map((data) => {
           return (
-
-            <div className='row product_list g-3 mb-3' key={data.id}>
-              <div className='col-md-4 mb-3'>
+              <div className='col-md-4 child mb-3' key={data.id}>
                 <Link to={"/productdetails"} state={data}>
                     <div className="product_card">
                         <div className="product_image">
@@ -62,9 +59,9 @@ function ProductList() {
                     </div>
                 </Link>
               </div>
-            </div>
           );
         })}
+        </div>
       </div>
     </>
   );
